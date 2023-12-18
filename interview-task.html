@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .header {
+            overflow: hidden;
+            background-color: aqua;
+            padding: 10px 10px;
+        }
+
+        .header ul {
+            float: left;
+            color: black;
+            text-align: center;
+            border-radius: 5px;
+            line-height: 20px;
+            padding: 15px;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .header ul.logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .header ul:hover {
+            background-color: antiquewhite;
+            color: black;
+        }
+
+        .header div.active {
+            background-color: red;
+            float: right;
+        }
+
+        .header-right {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        @media screen and (max-width: 600px) {
+            .header ul {
+                display: block;
+            }
+
+            .header-right {
+                display: flex;
+                flex-direction: column; /* Make the menu items vertical */
+                align-items: flex-start;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                padding: 1rem;
+                box-sizing: border-box;
+                display: none; /* Hide the menu by default */
+            }
+
+            .active {
+                text-align: left;
+            }
+
+            .header {
+                text-align: left;
+            }
+
+            .header-right.active {
+                display: flex;
+            }
+
+            .header-right ul {
+                margin-bottom: 0.5rem;
+            }
+
+            #img-icon {
+                display: block; /* Show the icon in mobile view */
+            }
+        }
+
+        @media screen and (min-width: 601px) {
+            #img-icon {
+                display: none; /* Hide the icon in web view */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="1.jpg" alt="" height="30px" width="30px" class="img-icon" id="img-icon">
+
+        <ul class="logo">
+            <div class="header-right">
+                <li>
+                    Home
+                </li>
+                <li>
+                    Products
+                </li>
+                <li>
+                    Our Team
+                </li>
+                <li>
+                    Blog
+                </li>
+                <li>
+                    Contact
+                </li>
+            </div>
+        </ul>
+    </div>
+
+    <script>
+        document.getElementById("img-icon").addEventListener('click', function () {
+            document.querySelector('.header-right').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
